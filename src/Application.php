@@ -36,8 +36,17 @@ class Application extends Module
     {
         $ac = $this->router::parseUrl();
         list($controller, $action) = $ac;
-        $this->controller = $controller;
+        $controller = $this->parseController($controller);
+        $this->controller = new $controller;
         $this->controller->init();
         $this->controller->run($action);
+    }
+
+    private function parseController($controller)
+    {
+        $cls = ucfirst($controller) . 'Controller';
+        $path = APP_DIR . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . $cls . '.php';
+        require_once $path;
+        return $cls;
     }
 }
