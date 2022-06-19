@@ -81,6 +81,8 @@ class Application extends Module
 
     private function init()
     {
+        // 设置时区
+        date_default_timezone_set('Asia/Shanghai');
         // 初始化常量
         require_once __DIR__ . DIRECTORY_SEPARATOR . '../const.php';
         // 加载预定义快捷函数
