@@ -59,6 +59,26 @@ class Logger
         $this->log($msg, self::LEVEL_INFO);
     }
 
+    public function trace($msg)
+    {
+        $this->log($msg, self::LEVEL_TRACE);
+    }
+
+    public function warning($msg)
+    {
+        $this->log($msg, self::LEVEL_WARNING);
+    }
+
+    public function error($msg)
+    {
+        $this->log($msg, self::LEVEL_ERROR);
+    }
+
+    public function fatal($msg)
+    {
+        $this->log($msg, self::LEVEL_FATAL);
+    }
+
     protected function flush()
     {
         // handler收集日志
