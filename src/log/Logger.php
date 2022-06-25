@@ -2,6 +2,8 @@
 
 namespace juggle\frm\log;
 
+use juggle\frm\exception\RuntimeException;
+use juggle\frm\config\Config;
 use juggle\frm\log\Handler\File;
 
 class Logger
@@ -32,10 +34,18 @@ class Logger
     public function __construct()
     {
         // 暂时只支持file类型
-        $config = [
-            'levels' => $this->levels,
-        ];
-        $this->handlers[] = new File($config);
+        // 根据配置文件，加载handlers
+        $hConf = Config::get('log.handlers');
+        if (empty($hConf) || !is_array($hConf)) {
+            throw new RuntimeException('log config is invalid!');
+        }
+        foreach ($hConf as $h) {
+            $config = [
+                'file_name' => $h['file_name'] ?? '',
+                'levels' => $h['levels'],
+            ];
+            $this->handlers[] = new File($config);
+        }
         register_shutdown_function([$this, 'flush']);
     }
 

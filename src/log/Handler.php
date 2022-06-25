@@ -11,6 +11,9 @@ abstract class Handler
 
     public function __construct($config)
     {
+        if (!is_array($config['levels'])) {
+            $config['levels'] = explode(',', $config['levels']);
+        }
         $this->levels = $config['levels'];
     }
 

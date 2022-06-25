@@ -14,7 +14,7 @@ class File extends Handler
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->fileName = $config['fileName'] ?? 'app.log';
+        $this->fileName = $config['file_name'] ?? 'app.log';
         $this->init();
     }
 
