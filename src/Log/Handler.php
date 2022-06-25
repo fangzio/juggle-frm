@@ -1,6 +1,6 @@
 <?php
 
-namespace juggle\frm\log;
+namespace Juggle\Frm\Log;
 
 abstract class Handler
 {

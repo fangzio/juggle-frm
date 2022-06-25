@@ -1,6 +1,6 @@
 <?php
 
-use juggle\frm\app\Application;
+use Juggle\Frm\App\Application;
 
 if (!function_exists('app')) {
     function app()

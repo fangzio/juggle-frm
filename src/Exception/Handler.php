@@ -1,6 +1,6 @@
 <?php
 
-namespace juggle\frm\exception;
+namespace Juggle\Frm\Exception;
 
 class Handler
 {

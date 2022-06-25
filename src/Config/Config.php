@@ -1,6 +1,6 @@
 <?php
 
-namespace juggle\frm\config;
+namespace Juggle\Frm\Config;
 
 class Config
 {

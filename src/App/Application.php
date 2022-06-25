@@ -1,11 +1,11 @@
 <?php
 
-namespace juggle\frm\app;
+namespace Juggle\Frm\App;
 
-use juggle\frm\controller\Controller;
-use juggle\frm\exception\RuntimeException;
-use juggle\frm\log\Logger;
-use juggle\frm\router\Router;
+use Juggle\Frm\Controller\Controller;
+use Juggle\Frm\Exception\RuntimeException;
+use Juggle\Frm\Log\Logger;
+use Juggle\Frm\Router\Router;
 
 class Application extends Module
 {
@@ -76,7 +76,7 @@ class Application extends Module
 
     private function registerExceptionHandler()
     {
-        set_exception_handler('juggle\frm\exception\Handler::handleRuntimeException');
+        set_exception_handler('Juggle\Frm\Exception\Handler::handleRuntimeException');
     }
 
     private function init()

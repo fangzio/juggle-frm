@@ -1,14 +1,15 @@
 <?php
 
-namespace juggle\frm\log;
+namespace Juggle\Frm\Log;
 
-use juggle\frm\exception\RuntimeException;
-use juggle\frm\config\Config;
-use juggle\frm\log\Handler\File;
+use Juggle\Frm\Exception\RuntimeException;
+use Juggle\Frm\Config\Config;
+use Juggle\Frm\Log\Handler\File;
 
 class Logger
 {
     const LEVEL_TRACE = 'trace';
+    const LEVEL_DEBUG = 'debug';
     const LEVEL_INFO = 'info';
     const LEVEL_WARNING = 'warning';
     const LEVEL_ERROR = 'error';
@@ -23,8 +24,6 @@ class Logger
 
     // 正在执行写日志操作
     protected $processing = false;
-
-    protected $levels = [self::LEVEL_TRACE, self::LEVEL_INFO, self::LEVEL_WARNING, self::LEVEL_ERROR];
 
     /**
      * @var Handler[]
@@ -67,6 +66,11 @@ class Logger
     public function info($msg)
     {
         $this->log($msg, self::LEVEL_INFO);
+    }
+
+    public function debug($msg)
+    {
+        $this->log($msg, self::LEVEL_DEBUG);
     }
 
     public function trace($msg)

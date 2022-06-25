@@ -1,6 +1,6 @@
 <?php
 
-namespace juggle\frm\controller;
+namespace Juggle\Frm\Controller;
 
 class Controller
 {

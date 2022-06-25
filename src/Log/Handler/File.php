@@ -1,9 +1,9 @@
 <?php
 
-namespace juggle\frm\log\Handler;
+namespace Juggle\Frm\Log\Handler;
 
-use juggle\frm\exception\RuntimeException;
-use juggle\frm\log\Handler;
+use Juggle\Frm\Exception\RuntimeException;
+use Juggle\Frm\Log\Handler;
 
 class File extends Handler
 {

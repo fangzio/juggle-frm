@@ -1,6 +1,6 @@
 <?php
 
-namespace juggle\frm\router;
+namespace Juggle\Frm\Router;
 
 class Router
 {
