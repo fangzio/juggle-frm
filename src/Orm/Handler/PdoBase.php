@@ -38,6 +38,18 @@ abstract class PdoBase extends Handler
         return $this->connection()->prepare($sql);
     }
 
+    public function parseQuery($datasource, $fields, $whereStr, $order, $group, $offset, $limit)
+    {
+        $sql = 'SELECT ' . ($fields ?? '*') .
+            ' FROM ' . $datasource .
+            ($whereStr ? ' WHERE (' . $whereStr . ')' : '') .
+            ($group ? ' GROUP BY (' . $group . ')' : '') .
+            ($order ? ' ORDER BY (' . $order . ')' : '') .
+            ($offset ? ' OFFSET ' . $offset : '') .
+            ($limit ? ' LIMIT ' . $limit : '');
+        return $sql;
+    }
+
     /**
      * @param $sql
      * @param array $bind
